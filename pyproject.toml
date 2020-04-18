@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "gino-tornado"
+version = "0.1.0"
+description = "An extension for GINO to integrate with Tornado"
+license = "BSD-3-Clause"
+authors = ["Vladimir Goncharov <amatanhead@yandex-team.ru>"]
+maintainers = []
+readme = "README.md"
+homepage = "https://github.com/python-gino/gino-tornado"
+repository = "https://github.com/python-gino/gino-tornado"
+documentation = "https://python-gino.readthedocs.io/"
+keywords = ["sqlalchemy", "python3", "tornado", "gino"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+]
+
+[tool.poetry.dependencies]
+python = "^3.5.2"
+gino = { version = "^1.0.0rc2", allow-prereleases = true }
+tornado = "^6.0.4"
+
+[tool.poetry.dev-dependencies]
+black = { version = "^19.10b0", python = ">=3.6" }
+
+# tests
+pytest = "^5.3.2"
+pytest-cov = "^2.8.1"
+pytest-tornado = "^0.8.0"
+
+[tool.poetry.plugins."gino.extensions"]
+"tornado" = "gino_tornado"
+
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"

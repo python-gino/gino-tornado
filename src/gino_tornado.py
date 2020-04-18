@@ -113,12 +113,10 @@ import tornado.iostream
 import tornado.log
 import tornado.platform.asyncio
 import tornado.web
-
+from gino.api import Gino as _Gino, GinoExecutor as _Executor
+from gino.engine import GinoConnection as _Connection, GinoEngine as _Engine
+from gino.strategies import GinoStrategy
 from sqlalchemy.engine.url import URL
-
-from ..api import Gino as _Gino, GinoExecutor as _Executor
-from ..engine import GinoConnection as _Connection, GinoEngine as _Engine
-from ..strategies import GinoStrategy
 
 if tornado.version_info[0] < 5:
     raise Exception("Only Tornado 5 or later is supported")

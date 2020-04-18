@@ -8,7 +8,7 @@ maintainers = []
 readme = "README.md"
 homepage = "https://github.com/python-gino/gino-tornado"
 repository = "https://github.com/python-gino/gino-tornado"
-documentation = "https://python-gino.readthedocs.io/"
+documentation = "https://python-gino.org/docs/"
 keywords = ["sqlalchemy", "python3", "tornado", "gino"]
 classifiers = [
     "Development Status :: 3 - Alpha",

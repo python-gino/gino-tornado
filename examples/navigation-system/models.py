@@ -14,8 +14,8 @@ class Dron(db.Model):
     """
     __tablename__ = 'drones'
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
-    group = db.Column(db.String(30), unique=True)
-    timestamp = db.Column(db.String(30), default='None')
+    group = db.Column(db.String(30))
+    reference = db.Column(db.String(30))
 
 
 class Route(db.Model):

@@ -17,6 +17,13 @@ class Dron(db.Model):
     group = db.Column(db.String(30))
     reference = db.Column(db.String(30))
 
+    def dict_repr(self):
+        return {
+            'id': str(self.id),
+            'group': self.group,
+            'reference': self.reference
+        }
+
 
 class Route(db.Model):
     """Define a route for dron to run
@@ -28,6 +35,21 @@ class Route(db.Model):
     dron_id = db.Column(db.Integer())
     start_timestamp = db.Column(db.DateTime())
 
+    def dict_repr(self):
+        return {
+            'id': str(self.id),
+            'initial_point': self.initial_point,
+            'final_point': self.final_point,
+            'dron_id': self.dron_id,
+            'start_timestamp': self.start_timestamp
+        }
+
+    async def traceback(self):
+        points = await RoutePoint.query.where(
+            RoutePoint.route_id == str(self.id)
+        ).gino.first()
+        return [a.dict_repr() for a in points]
+
 
 class RoutePoint(db.Model):
     """Define an ownCloud user.
@@ -38,3 +60,10 @@ class RoutePoint(db.Model):
     timestamp = db.Column(db.DateTime())
     location_point = db.Column(db.String(30), unique=True)
 
+    def dict_repr(self):
+        return {
+            'id': str(self.id),
+            'route_id': self.route_id,
+            'timestamp': self.timestamp,
+            'location_point': self.location_point
+        }

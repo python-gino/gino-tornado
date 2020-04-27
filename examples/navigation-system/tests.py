@@ -72,16 +72,33 @@ class missionTestCase(baseTestCase):
 
     def test_create_route(self):
         # CREATE DRON
+        raw = self.fetch('/dron/', method='POST', body=json.dumps(self.dron_info))
+        created_dron = json.loads(raw)
+        self.assertTrue('created' in created_dron)
         # CREATE ROUTE
+        self.route_info['dron_id'] = created_dron['created']
+        raw = self.fetch('/route/', method='POST', body=json.dumps(self.route_info))
+        created_route = json.loads(raw)
         # CHECK RESPONSE
-        pass
+        self.assertTrue('created' in created_route)
 
     def test_add_routepoint(self):
         # CREATE DRON
+        raw = self.fetch('/dron/', method='POST', body=json.dumps(self.dron_info))
+        created_dron = json.loads(raw)
         # CREATE ROUTE
+        self.route_info['dron_id'] = created_dron['created']
+        raw = self.fetch('/route/', method='POST', body=json.dumps(self.route_info))
+        created_route = json.loads(raw)
+        self.assertTrue('created' in created_route)
         # ADD ROUTE POINT
-        # CHECK RESPONSE
-        pass
+        for item in self.route_points_info:
+            item['route_id'] = created_route['created']
+        for point in self.route_points_info:
+            raw = self.fetch('/route-point/', method='POST', body=json.dumps(point))
+            created_point = json.loads(raw)
+            # CHECK RESPONSE
+            self.assertTrue('created' in created_point)
 
     def setUp(self):
         # define test infrastructure (app server, db connections)

@@ -27,27 +27,25 @@ class DronHandler(RequestHandler):
         self.write({'created': drone.id})
         
 
-
 class RouteHandler(RequestHandler):
     
-    async def get(self, dronid):
-        drone = await Dron.query.where(
-            Dron.id == dronid
+    async def get(self, routeid):
+        route = await Route.query.where(
+            Route.id == routeid
         ).gino.first()
-        self.write({f'{dronid}': drone})
+        self.write({routeid: route})
 
-    async def post(self, dronid):
-        drone = await Dron.query.where(
-            Dron.id == dronid
+    async def post(self, routeid):
+        route = await Route.query.where(
+            Route.id == routeid
         ).gino.first()
-        if drone:
+        if route:
             data = json.loads(self.request.body)
             route = Route(**data)
             await route.create()
             self.write({'created': route.id})
         else:
-            self.set_status(404, 'dron not created')
-        
+            self.set_status(404, 'dron not created')  
 
 
 class RoutePointHandler(RequestHandler):
@@ -55,7 +53,7 @@ class RoutePointHandler(RequestHandler):
     async def post(self):
         data = json.loads(self.request.body)
         route = await Route.query.where(
-            Route.id == dronid
+            Route.id == data['route_id']
         ).gino.first()
         if route:
             routepoint = RoutePoint(**data)

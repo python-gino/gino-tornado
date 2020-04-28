@@ -3,7 +3,7 @@
 Databases models and storages
 """
 from datetime import datetime
-from gino.ext.tornado import Gino
+from gino_tornado import Gino
 
 
 db = Gino()

@@ -5,7 +5,12 @@ Databases models and storages
 from datetime import datetime
 from gino_tornado import Gino
 
-
+# DEFINE GINO CORE
+# gino extension for tornado is an object that
+# allow user start/stop gino service as an
+# application used as parent class of models or
+# inside tornado request handlers, this example 
+# uses gino as parent class for models
 db = Gino()
 
 
@@ -30,8 +35,8 @@ class Route(db.Model):
     """
     __tablename__ = 'routes'
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
-    initial_point = db.Column(db.String(30), unique=True)
-    final_point = db.Column(db.String(30), unique=True)
+    initial_point = db.Column(db.String(30))
+    final_point = db.Column(db.String(30))
     dron_id = db.Column(db.Integer())
     start_timestamp = db.Column(db.DateTime())
 

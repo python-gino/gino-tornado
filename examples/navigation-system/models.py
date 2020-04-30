@@ -1,21 +1,19 @@
 # -*- coding: utf-8 -*-
+""" Databases models and storages.
 """
-Databases models and storages
-"""
-from datetime import datetime
 from gino_tornado import Gino
 
 # DEFINE GINO CORE
 # gino extension for tornado is an object that
 # allow user start/stop gino service as an
 # application used as parent class of models or
-# inside tornado request handlers, this example 
+# inside tornado request handlers, this example
 # uses gino as parent class for models
 db = Gino()
 
 
 class Dron(db.Model):
-    """Define dron information
+    """Define dron information.
     """
     __tablename__ = 'drones'
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
@@ -31,7 +29,7 @@ class Dron(db.Model):
 
 
 class Route(db.Model):
-    """Define a route for dron to run
+    """Define a route for dron to run.
     """
     __tablename__ = 'routes'
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)

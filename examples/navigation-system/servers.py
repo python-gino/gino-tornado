@@ -1,11 +1,13 @@
-"""
+# -*- coding: utf-8 -*-
+""" Web Application with tornado and gino.
+
 endpoints:
 
 - create dron, get dron info, edit dron info
 - create route, get route info
 - create point route, get points
 """
-import asyncio
+
 import json
 from datetime import datetime
 from tornado.web import Application, RequestHandler
@@ -31,7 +33,7 @@ class DronHandler(RequestHandler):
         
 
 class RouteHandler(RequestHandler):
-    
+
     async def get(self, routeid):
         route = await Route.query.where(
             Route.id == routeid
@@ -45,7 +47,7 @@ class RouteHandler(RequestHandler):
             Dron.id == data['dron_id']
         ).gino.first()
         print('routehandler async post dron', dron)
-        if dron: 
+        if dron:
             data['start_timestamp'] = datetime.now()
             route = Route(**data)
             print(data, route)
@@ -53,7 +55,7 @@ class RouteHandler(RequestHandler):
             print('routehandler async post route', route)
             self.write({'created': route.id})
         else:
-            self.set_status(404, 'dron not created')  
+            self.set_status(404, 'dron not created')
 
 
 class RoutePointHandler(RequestHandler):

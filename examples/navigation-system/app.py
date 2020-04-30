@@ -1,24 +1,17 @@
 #!/usr/local/python/bin/python
 # -*- coding: utf-8 -*-
-"""
-Gino-tornado app example
+""" Gino-tornado app example.
 """
 # general imports
-
-import queries
-import logging
 
 # tornado imports
 import tornado
 from tornado import gen
 from tornado.ioloop import IOLoop
-from tornado.queues import Queue
-from tornado.locks import Event
-from tornado.options import define, parse_command_line, options
 
 # local imports
 from servers import build_service
-from settings import DEBUG, SSL_OPTIONS, SSL_DEPLOY, OWN_DB_INFO
+from settings import SSL_OPTIONS, SSL_DEPLOY, OWN_DB_INFO
 from models import db
 
 

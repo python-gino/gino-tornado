@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-Write tests with gino and tornado
+""" Write tests with gino and tornado.
 """
 import os
-from time import time, sleep
 import json
 import asyncio
 from datetime import datetime, timedelta
@@ -18,12 +16,12 @@ from servers import build_service
 
 
 class baseTestCase(AsyncHTTPTestCase):
-    """Base class for tests"""
+    """Base class for tests."""
 
     def setUp(self):
         self.io_loop = IOLoop.current()
         # CONFIGURE TORNADO SERVER AND CLIENT
-        super(AsyncHTTPTestCase, self).setUp()
+        super().setUp()
         self.__port = self.get_http_port()
         self._app = self.get_app()
         self.http_client = AsyncHTTPClient()
@@ -44,7 +42,7 @@ class baseTestCase(AsyncHTTPTestCase):
         AsyncHTTPTestCase.tearDown(self)
 
     def get_app(self):
-        """get application to launch server
+        """Get application to launch server.
         """
         app = build_service(
             service_management={}
@@ -52,12 +50,12 @@ class baseTestCase(AsyncHTTPTestCase):
         return app
 
     def get_http_port(self):
-        """get custom port to run server
+        """Get custom port to run server.
         """
         return 9999
 
     def get_url(self, path):
-        """customize url resolution on server, overridden
+        """Gustomize url resolution on server, overridden
         because it was failing with localhost
         """
         port = self.get_http_port()
@@ -65,12 +63,14 @@ class baseTestCase(AsyncHTTPTestCase):
 
 
 class missionTestCase(baseTestCase):
-    
+    """Test endpoints of web application.
+    """
+
     def test_create_dron(self):
         # CREATE DRON
         raw = self.fetch('/dron/', method='POST', body=json.dumps(self.dron_info))
         created_dron = json.loads(raw.body)
-        # CHECK RESPONSE 
+        # CHECK RESPONSE
         self.assertTrue('created' in created_dron)
 
     def test_create_route(self):

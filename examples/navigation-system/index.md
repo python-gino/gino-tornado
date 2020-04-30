@@ -6,7 +6,7 @@ to understand this example, read `tests.py` first, you will find how to start an
 
 after that, you can read `models.py` where you can see how to define models in sqlalchemy fashion, and finally theck `servers.py` to check how gino and tornado work together as part of a backend application.
 
-# setup envionment
+## setup envionment
 
 this example was tested under Xubuntu 19.10, so, most of modern linux and macOS systems will perform in a similar way. to be able to run this example, you need to follow the steps bellow:
 
@@ -22,15 +22,14 @@ install python [requirements](requirements.txt) with `pip install -r requirement
 
 connect to `myuser` user postgresql console by running `sudo -u myuser psql`, then, run in your psql console to create `ginotornadoex` database:
 
-```
+``` sql
 create database ginotornadoex;
 
 ```
 
 after that, create a secrets.json file with following information:
 
-
-```
+``` json
 {
     "DATABASE_NAME": "ginotornadoex",
     "DATABASE_USER": "myuser",

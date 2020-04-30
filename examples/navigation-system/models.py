@@ -13,7 +13,8 @@ db = Gino()
 
 
 class Dron(db.Model):
-    """Define dron information.
+    """
+    Define dron information.
     """
     __tablename__ = 'drones'
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
@@ -29,7 +30,8 @@ class Dron(db.Model):
 
 
 class Route(db.Model):
-    """Define a route for dron to run.
+    """
+    Define a route for dron to run.
     """
     __tablename__ = 'routes'
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
@@ -55,7 +57,8 @@ class Route(db.Model):
 
 
 class RoutePoint(db.Model):
-    """Define an ownCloud user.
+    """
+    Define an ownCloud user.
     """
     __tablename__ = 'routepoints'
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)

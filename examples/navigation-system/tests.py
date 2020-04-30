@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-""" Write tests with gino and tornado.
 """
-import os
+Write tests with gino and tornado.
+"""
 import json
 import asyncio
 from datetime import datetime, timedelta
 
-from tornado.testing import unittest, AsyncHTTPTestCase
+from tornado.testing import AsyncHTTPTestCase
 from tornado.httpclient import AsyncHTTPClient
 from tornado.ioloop import IOLoop
 
@@ -56,7 +56,7 @@ class baseTestCase(AsyncHTTPTestCase):
 
     def get_url(self, path):
         """Gustomize url resolution on server, overridden
-        because it was failing with localhost
+        because it was failing with localhost.
         """
         port = self.get_http_port()
         return f'http://localhost:{port}{path}'

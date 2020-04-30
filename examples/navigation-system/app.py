@@ -1,6 +1,7 @@
 #!/usr/local/python/bin/python
 # -*- coding: utf-8 -*-
-""" Gino-tornado app example.
+"""
+Gino-tornado app example.
 """
 # general imports
 

@@ -12,11 +12,11 @@ this example was tested under Xubuntu 19.10, so, most of modern linux and macOS 
 
 ## dependencies
 
-install postgres with `sudo apt-get install postgresql postgresql-contrib`, for postgresql configuration, you can check articles like (this one)[https://tecadmin.net/install-postgresql-server-on-ubuntu/].
+install postgres with `sudo apt-get install postgresql postgresql-contrib`, for postgresql configuration, you can check articles like [this one](https://tecadmin.net/install-postgresql-server-on-ubuntu/).
 
 ## python dependencies
 
-install python (requirements)[requirements.txt] with `pip install -r requirements.txt`
+install python [requirements](requirements.txt) with `pip install -r requirements.txt`
 
 ## setup database
 

@@ -4,12 +4,12 @@ An extension for GINO to support Tornado server.
 
 ## Contents
 
-* examples
-  * [navigation system](examples/navigation-system/index.md): simple tdd crud app for drone route management, contains a simple tornado-gino application and its tornado.testing testcases.
+  - examples
+    - [navigation system](examples/navigation-system/index.md): simple tdd crud app for drone route management, contains a simple tornado-gino application and its tornado.testing testcases.
 
-* tutorials
-  * basic tornado-gino (soon)
-  * production tips (soon)
+  - tutorials
+    - basic tornado-gino (soon)
+    - production tips (soon)
 
 ## Current status
 
